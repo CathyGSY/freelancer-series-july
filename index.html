@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorldFirst · Freelancer Series — July 2026 Research Note</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f7f7;
+    --border: #e8e8e8;
+    --text: #111111;
+    --muted: #666666;
+    --accent: #111111;
+    --tag-bg: #f0f0f0;
+    --tag-text: #444444;
+    --tag-product-bg: #fff8e7;
+    --tag-product-text: #8a6000;
+    --tag-solution-bg: #eef6ee;
+    --tag-solution-text: #2d6a2d;
+    --tag-fx-bg: #eef3ff;
+    --tag-fx-text: #2040a0;
+    --tag-sourcing-bg: #fdf3ee;
+    --tag-sourcing-text: #8a3800;
+    --sidebar-width: 200px;
+    --content-max: 760px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 32px 20px;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+  }
+
+  .sidebar-brand {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .sidebar-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 28px;
+    line-height: 1.3;
+  }
+
+  .sidebar-section {
+    margin-bottom: 20px;
+  }
+
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .sidebar nav a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    border-bottom: none;
+    transition: color 0.15s;
+  }
+
+  .sidebar nav a:hover { color: var(--text); }
+
+  .sidebar nav a .count {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--tag-bg);
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  /* Main */
+  .main {
+    margin-left: var(--sidebar-width);
+    padding: 48px 48px 80px;
+    max-width: calc(var(--sidebar-width) + var(--content-max) + 96px);
+  }
+
+  /* Header */
+  .doc-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .doc-intro {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .stats-bar {
+    display: flex;
+    gap: 28px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Section headers */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Creator block */
+  .creator-block {
+    margin-bottom: 64px;
+    scroll-margin-top: 32px;
+  }
+
+  .creator-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .creator-number {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    min-width: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .status-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--tag-bg);
+    color: var(--muted);
+  }
+
+  .creator-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    margin-left: 32px;
+  }
+
+  .creator-context {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .audience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-weight: 500;
+  }
+
+  .tag.product { background: var(--tag-product-bg); color: var(--tag-product-text); }
+  .tag.solution { background: var(--tag-solution-bg); color: var(--tag-solution-text); }
+  .tag.fx { background: var(--tag-fx-bg); color: var(--tag-fx-text); }
+  .tag.sourcing { background: var(--tag-sourcing-bg); color: var(--tag-sourcing-text); }
+
+  /* Viral refs */
+  .refs-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
+    font-size: 12.5px;
+  }
+
+  .ref-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 10px 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ref-table td {
+    padding: 9px 10px 9px 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .ref-table tr:last-child td { border-bottom: none; }
+
+  .ref-hook {
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .ref-handle {
+    color: var(--muted);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .ref-likes {
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .ref-platform {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 6px;
+    background: var(--tag-bg);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .ref-why {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* Content ideas */
+  .ideas-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .idea-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+
+  .idea-card:hover {
+    border-color: #ccc;
+  }
+
+  .idea-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .idea-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    min-width: 18px;
+    margin-top: 2px;
+  }
+
+  .idea-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .idea-format {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: var(--tag-bg);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .idea-body {
+    margin-left: 30px;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .idea-tags {
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  /* Platform benchmark section */
+  .benchmark-block {
+    scroll-margin-top: 32px;
+    margin-bottom: 40px;
+  }
+
+  .benchmark-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .benchmark-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .benchmark-platform {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .benchmark-finding {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+
+  .benchmark-example {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* Insight callout */
+  .insight {
+    background: #fffbf0;
+    border: 1px solid #f0e0a0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #5a4400;
+    margin-bottom: 20px;
+    line-height: 1.55;
+  }
+
+  .insight strong { color: #3a2c00; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-brand">WorldFirst</div>
+  <div class="sidebar-title">Freelancer Series<br>Research Note</div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Creators</div>
+    <nav>
+      <a href="#kat">Kat <span class="count">5</span></a>
+      <a href="#rado">Rado <span class="count">2L+4S</span></a>
+      <a href="#cassie">Cassie <span class="count">4</span></a>
+    </nav>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">More</div>
+    <nav>
+      <a href="#platforms">Platform benchmarks</a>
+      <a href="#hooks">Hook formulas</a>
+    </nav>
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="doc-label">CONTENT STRATEGY · JULY 2026</div>
+  <h1>Freelancer Series<br>Research Note</h1>
+  <p class="doc-intro">Research for three of the four July freelancer creators. Angles grounded in viral TikTok and Instagram benchmarks. George (Sourcing Series, 6 videos) excluded — brief separately. Each section covers platform findings, viral references, and ranked content ideas.</p>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-value">3</span>
+      <span class="stat-label">creators researched</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">15</span>
+      <span class="stat-label">videos planned</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">30+</span>
+      <span class="stat-label">viral refs reviewed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">2026-06-26</span>
+      <span class="stat-label">researched</span>
+    </div>
+  </div>
+
+  <!-- ───────────────────── KAT ───────────────────── -->
+  <div class="creator-block" id="kat">
+    <div class="section-label">01 · Kat</div>
+    <div class="creator-header">
+      <h2>Kat</h2>
+      <span class="status-tag">5 videos · Product Benefit</span>
+    </div>
+    <div class="creator-meta">Direction: Product Benefit &nbsp;·&nbsp; Tone: authentic, UGC-style, not ad-read &nbsp;·&nbsp; Products: World Account, World Card</div>
+
+    <div class="creator-context">
+      <strong>Context.</strong> Product Benefit works when it feels like a genuine discovery, not a sponsorship. The viral pattern here is the "you didn't know this existed" or "I switched and saved X" hook — a real user walking through a feature with their own voice, concrete numbers on screen. Kat should own her screen, not narrate a slide deck. The strongest performing fintech UGC on TikTok right now is feature-reveal and savings-proof: show the app, show the number, show the reaction. World Card cashback and multi-currency collection are the two clearest proof-of-benefit stories to build from.
+      <div class="audience-tags">
+        <span class="tag">SME owners</span>
+        <span class="tag">e-com sellers</span>
+        <span class="tag">cross-border freelancers</span>
+        <span class="tag product">PRODUCT</span>
+      </div>
+    </div>
+
+    <div class="insight">
+      <strong>Key insight.</strong> The #1 performing fintech content pattern is concrete savings proof — not feature lists. "I spent $8,000 on business this month. My bank gave me nothing. World Card gave me back $160." One number, one reaction, done. The second-best pattern is the objection-kill: "Wait — is WorldFirst actually a bank?" Then answer it clearly in 30 seconds.
+    </div>
+
+    <div class="refs-label">Viral references — TikTok &amp; Instagram</div>
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Hook / content</th>
+          <th>Handle</th>
+          <th>Likes</th>
+          <th>Platform</th>
+          <th style="width:22%">Why it works</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ref-hook">@fundednext fix up — fintech frustration hook, one-line caption drops into product</td>
+          <td class="ref-handle">@cyfertp</td>
+          <td class="ref-likes">5,082</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Frustration + brand tag = UGC that feels organic. Not scripted.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"I asked suppliers at the Canton Fair how they prefer to get paid — and the answer is clear"</td>
+          <td class="ref-handle">@chinaclothingwholesale<br><small style="color:#aaa">WorldFirst brand collab</small></td>
+          <td class="ref-likes">High</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Third-party credibility + real context (Canton Fair) + product landing naturally.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Is WorldFirst a Bank?" — short explainer answering the #1 new-user objection</td>
+          <td class="ref-handle">@worldfirstglobal</td>
+          <td class="ref-likes">—</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Objection-kill format. Evergreen. High search intent traffic.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"How to Get Cashback on Business Payments with World Card?"</td>
+          <td class="ref-handle">@worldfirstglobal</td>
+          <td class="ref-likes">—</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Cashback is the most tangible, shareable product benefit — money back = share-worthy.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">UGC fintech app demo — walking through the app on camera, showing the UI</td>
+          <td class="ref-handle">@explorewithjene</td>
+          <td class="ref-likes">Early traction</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">App-on-screen demos feel trustworthy. The camera-over-phone format signals authenticity.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"POV: Customers no longer need to type till numbers" — feature moment reveal</td>
+          <td class="ref-handle">@inventral.tech</td>
+          <td class="ref-likes">Strong</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">POV feature reveal = before/after compressed into one shot. Very replicable for World Account.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Why are you waiting for long money to do business, when you can just work with WorldFirst!"</td>
+          <td class="ref-handle">@eric_gugua<br><small style="color:#aaa">WorldFirst brand collab</small></td>
+          <td class="ref-likes">High</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Short, confident, branded. Works as a 10-second hook or standalone reel.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Comment 'LLC' to get the full video" — lead gen + product education loop</td>
+          <td class="ref-handle">@officialsaddamhasan</td>
+          <td class="ref-likes">764</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Comment CTA drives algorithm engagement. Easy to adapt: "Comment WORLD for the full breakdown."</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ideas-label">Content ideas — Kat (5 videos, ranked)</div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">01 ★</span>
+        <span class="idea-title">"I spent $8,000 on business this month — here's what I got back"</span>
+        <span class="idea-format">Short · 30–45s</span>
+      </div>
+      <div class="idea-body">World Card cashback proof. Open on the bank statement moment. Show the app, show the cashback number. No narration needed beyond "I didn't change anything. I just switched the card I was already spending on." Concrete, visual, share-worthy. Lead idea — start here.</div>
+      <div class="idea-tags">
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">World Card</span>
+        <span class="tag">cashback</span>
+        <span class="tag">savings proof</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">02 ★</span>
+        <span class="idea-title">"Wait — is WorldFirst actually a bank?" (objection kill)</span>
+        <span class="idea-format">Short · 30s</span>
+      </div>
+      <div class="idea-body">The single most common new-user question. Answer it clearly: no, it's a regulated payment platform — your funds are held at FDIC-partner banks (US) / licensed institutions. Fast, clean, builds trust. Strong search traffic. Pair with "so here's what it actually does" to bridge into features.</div>
+      <div class="idea-tags">
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">World Account</span>
+        <span class="tag">trust / objection</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">03 ★</span>
+        <span class="idea-title">"I collect Amazon, TikTok Shop, and Shopify payouts in one account"</span>
+        <span class="idea-format">Short · 45–60s</span>
+      </div>
+      <div class="idea-body">Screen-record the World Account dashboard showing USD, GBP, EUR collection from multiple marketplaces simultaneously. The hook is the chaos of juggling multiple payout accounts vs the simplicity of one. Target: multi-platform e-com sellers who know this pain intimately.</div>
+      <div class="idea-tags">
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">World Account</span>
+        <span class="tag">multi-currency collection</span>
+        <span class="tag">e-com sellers</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">04</span>
+        <span class="idea-title">"Open a free business account in under 5 minutes — I timed it"</span>
+        <span class="idea-format">Short · 45s</span>
+      </div>
+      <div class="idea-body">Screen-record the actual onboarding flow with a timer in frame. No voiceover explaining features — let the simplicity speak. End on "account open, ready to receive payments." Pairs well as a follow-up to video 2 (objection kill) when viewers search "how do I actually sign up."</div>
+      <div class="idea-tags">
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">World Account</span>
+        <span class="tag">onboarding / UX</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">05</span>
+        <span class="idea-title">"I asked 3 suppliers how they want to be paid — one answer every time"</span>
+        <span class="idea-format">Short · 30–40s</span>
+      </div>
+      <div class="idea-body">Man-on-the-street style (can be stylised). Three supplier clips or voiceover-simulated responses. Answer: same-day yuan transfer, direct to their account, no SWIFT mess. WorldFirst = the answer. Adapts the Canton Fair branded collab format into a freelancer creator's voice.</div>
+      <div class="idea-tags">
+        <span class="tag solution">SOLUTION</span>
+        <span class="tag">Pay to China</span>
+        <span class="tag">supplier payments</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ───────────────────── RADO ───────────────────── -->
+  <div class="creator-block" id="rado">
+    <div class="section-label">02 · Rado</div>
+    <div class="creator-header">
+      <h2>Rado</h2>
+      <span class="status-tag">2 Long + 4 Shorts · Sourcing / Ecom</span>
+    </div>
+    <div class="creator-meta">Direction: Sourcing / Ecom &nbsp;·&nbsp; Format: 2 long-form anchors + 4 derivative shorts &nbsp;·&nbsp; Tone: operator who has done this, not a teacher</div>
+
+    <div class="creator-context">
+      <strong>Context.</strong> The sourcing/ecom space on TikTok is saturated with "how to dropship" content from people who have never touched a factory. What breaks through is operator credibility — someone who has actually sourced, bought wrong, learned the hard way, and is telling you what they now know. KINSONSWORLD (360K followers, 1.4M likes, "exited brand for 7 figures") and Jack Bloomfield (86.7K, 767.7K likes) are the benchmark creators. Both use personal-story hooks, concrete numbers, and zero filler. The 2-long format for Rado should anchor the series; shorts are derivatives cut for reach.
+      <div class="audience-tags">
+        <span class="tag">importers</span>
+        <span class="tag">e-com brand builders</span>
+        <span class="tag">Amazon / Shopify sellers</span>
+        <span class="tag sourcing">SOURCING</span>
+      </div>
+    </div>
+
+    <div class="insight">
+      <strong>Key insight.</strong> Two formats dominate: (1) price-gap reveal — "this costs $0.50 at the factory and $40 on Amazon. Here's why, and how to close the gap." (2) mistake confessional — "I lost $X sourcing from the wrong place. Here's what I do now." Rado's long-form should own one of these as its spine. The shorts stack underneath as single-angle cuts from the same authority.
+    </div>
+
+    <div class="refs-label">Viral references — TikTok &amp; Instagram</div>
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Hook / content</th>
+          <th>Handle</th>
+          <th>Followers / Likes</th>
+          <th>Platform</th>
+          <th style="width:22%">Why it works</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ref-hook">"From 9-to-5 to $41M in Ecom" — top wholesale markets in Guangzhou and Shenzhen, rated</td>
+          <td class="ref-handle">@kinsonsworld</td>
+          <td class="ref-likes">360K / 1.4M</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Personal arc + operator credibility. Rating markets = concrete, scannable value.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Paying suppliers in China can be surprisingly difficult. Most people only think about product and price but forget the hardest part is often… sending the money."</td>
+          <td class="ref-handle">@jack.bloomfield</td>
+          <td class="ref-likes">86.7K / 767.7K</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Problem reveal — surfaces a pain the audience has but hasn't articulated. Perfect WorldFirst bridge.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Stop using Aliexpress, it's full of Middlemen. If you want to import from China, here are 5 websites you should know!"</td>
+          <td class="ref-handle">@dailyfulfillfr</td>
+          <td class="ref-likes">Strong</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Contrast hook (wrong way vs right way). List format is scroll-stopping and saveable.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Sourcing in China? Here's What Nobody Told Me…"</td>
+          <td class="ref-handle">@anitavwede</td>
+          <td class="ref-likes">Strong</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Curiosity gap hook. Works for any insider-knowledge reveal. High save rate.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"The true cost of a Gymshark hoodie" — teardown of what the brand pays vs retail</td>
+          <td class="ref-handle">@thesourcingguy</td>
+          <td class="ref-likes">High</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Brand name + price teardown = guaranteed watch-through. Audience loves seeing "the real number."</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"3 ways to save money on your next shipment from China"</td>
+          <td class="ref-handle">@kinsonsworld</td>
+          <td class="ref-likes">High</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Specific number (3) + concrete outcome (save money) + clear audience (China importers). Formula that consistently performs.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Profitable Amazon store? Watch out for hidden fees! Conversion charges and transfer delays can eat your margins."</td>
+          <td class="ref-handle">@businessexpertofficial<br><small style="color:#aaa">WorldFirst brand collab</small></td>
+          <td class="ref-likes">—</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">FX fees framed as a margin-eater for ecom sellers — natural WorldFirst integration angle for Rado.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Canton fair day2, 3 contracts signed — banks are eating 4–5% of my profit. Airwallex saved my $300 on $100k."</td>
+          <td class="ref-handle">@woodentoyjay</td>
+          <td class="ref-likes">9,928</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Vlog-style + concrete savings number + trade show context. Highly adaptable for WorldFirst.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ideas-label">Content ideas — Rado (2 long + 4 shorts, ranked)</div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">L1 ★</span>
+        <span class="idea-title">End-to-end sourcing: finding a factory on 1688, placing the order, and getting it shipped</span>
+        <span class="idea-format">Long · 6–10 min</span>
+      </div>
+      <div class="idea-body">The full operator playbook in one video. Hook: "Most people quit at step 2 because they can't pay the factory." Walk through the full loop — platform search, vetting suppliers, MOQ negotiation, placing the order, paying in yuan with WorldFirst (same-day), shipping. This is the definitive sourcing video Rado can own. The WorldFirst integration sits at the payment step, not the end.</div>
+      <div class="idea-tags">
+        <span class="tag sourcing">SOURCING</span>
+        <span class="tag">1688 + Pay-to-China</span>
+        <span class="tag solution">SOLUTION</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">L2 ★</span>
+        <span class="idea-title">Building an ecom brand from scratch: from China factory to Shopify/Amazon listing</span>
+        <span class="idea-format">Long · 8–12 min</span>
+      </div>
+      <div class="idea-body">Companion to L1 but from the brand-builder angle. Product selection, pricing (factory cost vs market price), choosing the right marketplace, setting up multi-currency collection so revenue doesn't sit trapped in Stripe or Amazon. WorldFirst integrates at the "collect your payouts" chapter — show the dashboard, show the currencies. The kinsonsworld arc is the benchmark: personal journey + operator numbers.</div>
+      <div class="idea-tags">
+        <span class="tag sourcing">SOURCING</span>
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">multi-currency collection</span>
+        <span class="tag">e-com brand building</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">S1 ★</span>
+        <span class="idea-title">"AliExpress vs Alibaba vs 1688 — same product, three prices. Here's what you're actually paying."</span>
+        <span class="idea-format">Short · 30–45s</span>
+      </div>
+      <div class="idea-body">Price ladder reveal cut from the L1 long. Show the price at each platform for the same product. End on: "1688 is 30–70% cheaper than AliExpress, but there's a payment wall. Here's how I get past it." WorldFirst in the final 5 seconds as the unlock. High save rate — people screenshot this kind of comparison.</div>
+      <div class="idea-tags">
+        <span class="tag sourcing">SOURCING</span>
+        <span class="tag">1688</span>
+        <span class="tag solution">SOLUTION</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">S2 ★</span>
+        <span class="idea-title">"Your bank is eating 4–5% of every China payment. I switched and saved $400 on one order."</span>
+        <span class="idea-format">Short · 30s</span>
+      </div>
+      <div class="idea-body">Adapt the woodentoyjay Canton Fair format. Real number, real context. Hook is the loss frame ("you're losing money right now"). Resolution is the WorldFirst switch. Can be shot simply — phone screen showing the transfer, receipt, savings. No studio needed.</div>
+      <div class="idea-tags">
+        <span class="tag fx">FX SAVING</span>
+        <span class="tag">Pay-to-China</span>
+        <span class="tag product">PRODUCT</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">S3</span>
+        <span class="idea-title">"This is why your China supplier keeps ghosting you"</span>
+        <span class="idea-format">Short · 30–40s</span>
+      </div>
+      <div class="idea-body">Sourcing relationship hook — surfaces a pain every importer knows. The answer: payment delays. Suppliers deprioritise buyers who take 5–10 days to wire money. WorldFirst same-day yuan transfer = you become a priority buyer. Operator-voice, not explainer-voice.</div>
+      <div class="idea-tags">
+        <span class="tag sourcing">SOURCING</span>
+        <span class="tag">supplier relations</span>
+        <span class="tag solution">SOLUTION</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">S4</span>
+        <span class="idea-title">"3 things I wish I knew before my first China order"</span>
+        <span class="idea-format">Short · 45–60s</span>
+      </div>
+      <div class="idea-body">Mistake-confessional format. High save rate because it's evergreen and specific. The three things: (1) MOQ negotiation is always possible, (2) never pay by credit card on Alibaba — the conversion fee kills your margin, (3) the factory you find on 1688 is usually not the factory that Alibaba shows you at twice the price. Clear WorldFirst mention on point 2.</div>
+      <div class="idea-tags">
+        <span class="tag sourcing">SOURCING</span>
+        <span class="tag">beginner</span>
+        <span class="tag">1688</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ───────────────────── CASSIE ───────────────────── -->
+  <div class="creator-block" id="cassie">
+    <div class="section-label">03 · Cassie</div>
+    <div class="creator-header">
+      <h2>Cassie</h2>
+      <span class="status-tag">4 videos · FX / Ecom</span>
+    </div>
+    <div class="creator-meta">Direction: FX / Ecom &nbsp;·&nbsp; Tone: savvy seller who found the smarter way, not a finance lecturer &nbsp;·&nbsp; Products: World Account, multi-currency collection, Pay-to-China</div>
+
+    <div class="creator-context">
+      <strong>Context.</strong> FX content performs when it makes an invisible cost visible. Most ecom sellers don't think about currency conversion as a margin problem — they think about product cost, shipping, ads. The job of Cassie's content is to reframe: the FX rate your bank applies to every Amazon payout or supplier payment is a hidden tax you're paying every single time. The best-performing examples use concrete dollar amounts, not percentages. "4% FX fee" feels abstract. "Banks took $4,000 of my $100,000 payout last quarter" lands.
+      <div class="audience-tags">
+        <span class="tag">Amazon / TikTok Shop sellers</span>
+        <span class="tag">cross-border ecom operators</span>
+        <span class="tag">international freelancers</span>
+        <span class="tag fx">FX SAVING</span>
+      </div>
+    </div>
+
+    <div class="insight">
+      <strong>Key insight.</strong> The best viral FX content on TikTok uses the "hidden cost" reveal, not the "great product" pitch. Show the fee FIRST. Make the viewer feel the loss. Then show the solution. The woodentoyjay post (9,928 likes) is the clearest benchmark: "banks are eating 4–5% of my profit" → product as the fix. Cassie should own this frame across all four videos with different contexts (Amazon payouts, supplier payments, freelancer collection, multi-platform sellers).
+    </div>
+
+    <div class="refs-label">Viral references — TikTok &amp; Instagram</div>
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Hook / content</th>
+          <th>Handle</th>
+          <th>Likes</th>
+          <th>Platform</th>
+          <th style="width:22%">Why it works</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ref-hook">"Banks are eating 4–5% of my profit. Airwallex AI FX engine saved my $300 on just $100k. Canton fair, 3 contracts signed."</td>
+          <td class="ref-handle">@woodentoyjay</td>
+          <td class="ref-likes">9,928</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Concrete number + real trade context + product-as-fix. The exact Cassie template. Swap Airwallex for WorldFirst.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Tired of high international payment fees and currency conversion charges? Discover how nsave can help…"</td>
+          <td class="ref-handle">@startuppakistanofficial</td>
+          <td class="ref-likes">2,710</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Pain hook + problem articulation + product reveal. Works because it names the exact feeling.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"CREDIT CARD FOREIGN TRANSACTION FEES (FOREX FEES)" — explainer making hidden fees visible</td>
+          <td class="ref-handle">@jaxreyes_</td>
+          <td class="ref-likes">3,698</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Education-first, no product push. Builds trust, drives follows. Works as a standalone or bridge to a product video.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Profitable Amazon store? Watch out for hidden fees! Conversion charges and transfer delays can eat your margins."</td>
+          <td class="ref-handle">@businessexpertofficial<br><small style="color:#aaa">WorldFirst brand collab</small></td>
+          <td class="ref-likes">—</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Ecom-seller framing of FX fees as a margin problem — this is the exact Cassie angle, already validated with WorldFirst branding.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"🇨🇦 SAVE MONEY ON CONVERSION FEES #amazonsellercanada" — Canada-specific FX savings for Amazon sellers</td>
+          <td class="ref-handle">@qaissahel</td>
+          <td class="ref-likes">Strong</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Market-specific FX content outperforms generic. Cassie can do an Australia / UK / SEA version of the same format.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Tired of Payoneer issues or getting blocked from receiving international payments? Let me put you on to WorldFirst 🌍"</td>
+          <td class="ref-handle">@fitzroyworld</td>
+          <td class="ref-likes">—</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Platform-switch framing — "I had X problem, I switched to WorldFirst." Cassie can use Stripe, PayPal, or Payoneer as the contrast.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Get Started with Global Payments Today! Create a FREE USD/EUR virtual bank account"</td>
+          <td class="ref-handle">@eversendapp</td>
+          <td class="ref-likes">48,900</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">48.9K likes — the highest performing fintech collection post in this research. Hook: free + multi-currency + global. The World Account has all three.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Receiving international payments as a freelancer shouldn't be complicated"</td>
+          <td class="ref-handle">@remoteworkher</td>
+          <td class="ref-likes">207</td>
+          <td><span class="ref-platform">TikTok</span></td>
+          <td class="ref-why">Freelancer pain framing for the FX angle. Cassie can take this further with concrete numbers and the WorldFirst resolution.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ideas-label">Content ideas — Cassie (4 videos, ranked)</div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">01 ★</span>
+        <span class="idea-title">"My bank took $4,000 of my last Amazon payout. Here's what I use now."</span>
+        <span class="idea-format">Short · 30–40s</span>
+      </div>
+      <div class="idea-body">The woodentoyjay formula adapted for Amazon sellers. Open on the loss number. Show the payout, show what the bank converted it at, show the fee. Then show the WorldFirst rate side by side. End on the savings figure. No filler, no CTA — the number does the work. Highest save-rate potential of the four videos.</div>
+      <div class="idea-tags">
+        <span class="tag fx">FX SAVING</span>
+        <span class="tag">multi-currency collection</span>
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">Amazon sellers</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">02 ★</span>
+        <span class="idea-title">"PayPal vs Stripe vs WorldFirst: what $10,000 actually becomes in your account"</span>
+        <span class="idea-format">Short · 45–60s</span>
+      </div>
+      <div class="idea-body">Platform comparison using a consistent $10,000 input. Show the net amount after fees and FX conversion for each platform. WorldFirst wins on the number. Simple graphic or phone-screen walkthrough. The contrast format (jaxreyes_ credit card fees post got 3,698 likes) is the template. Works best with real-world rates on the day of filming for credibility.</div>
+      <div class="idea-tags">
+        <span class="tag fx">FX SAVING</span>
+        <span class="tag">platform comparison</span>
+        <span class="tag product">PRODUCT</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">03 ★</span>
+        <span class="idea-title">"I sell on Amazon US, Shopify UK, and TikTok Shop — I collect everything in one place"</span>
+        <span class="idea-format">Short · 45s</span>
+      </div>
+      <div class="idea-body">Multi-platform seller angle — the eversend format (48.9K likes) validated that "free multi-currency account" hooks resonate massively. Cassie's version: show the World Account dashboard with USD, GBP, and multiple currency balances. The hook is the simplicity of one account doing what four used to. Target: sellers who are currently juggling multiple payout accounts and hate it.</div>
+      <div class="idea-tags">
+        <span class="tag product">PRODUCT</span>
+        <span class="tag">World Account</span>
+        <span class="tag">multi-currency collection</span>
+        <span class="tag">multi-platform sellers</span>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-top">
+        <span class="idea-num">04</span>
+        <span class="idea-title">"The FX rate your bank gives you is not the real exchange rate — here's the difference"</span>
+        <span class="idea-format">Short · 30–40s</span>
+      </div>
+      <div class="idea-body">Education-first, brand-second. Explain the mid-market rate vs the bank's retail rate — the spread is where the hidden fee lives. Cassie is the explainer, not the seller. Builds authority. End with: "This is why I use WorldFirst — they show you the rate before you convert." Pairs with video 02 as the educational foundation under the comparison.</div>
+      <div class="idea-tags">
+        <span class="tag fx">FX SAVING</span>
+        <span class="tag">FX education</span>
+        <span class="tag solution">SOLUTION</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Platform benchmarks -->
+  <div class="benchmark-block" id="platforms">
+    <div class="section-label">Platform benchmarks</div>
+
+    <div class="benchmark-grid">
+      <div class="benchmark-card">
+        <div class="benchmark-platform">TikTok — Fintech / FX</div>
+        <div class="benchmark-finding">Concrete savings numbers outperform feature lists by a large margin. Best-performing posts lead with a loss ("banks took $X") not a gain ("save with Y").</div>
+        <div class="benchmark-example">woodentoyjay: 9,928 likes · "banks eating 4–5% of my profit"<br>startuppakistanofficial: 2,710 likes · "tired of high fees"<br>eversendapp: 48,900 likes · "free multi-currency account"</div>
+      </div>
+      <div class="benchmark-card">
+        <div class="benchmark-platform">TikTok — Sourcing / China</div>
+        <div class="benchmark-finding">Operator credibility drives performance. "I exited for 7 figures" or "I signed 3 contracts at Canton Fair" signals that the creator has real experience. List formats (3 tips, 5 websites) are consistently shareable.</div>
+        <div class="benchmark-example">kinsonsworld: 360K followers, 1.4M likes · operator positioning<br>jack.bloomfield: 86.7K followers, 767.7K likes · supplier payment pain hook</div>
+      </div>
+      <div class="benchmark-card">
+        <div class="benchmark-platform">TikTok — Product Benefit</div>
+        <div class="benchmark-finding">UGC-style app demos and POV feature reveals outperform polished sponsored content. Comment CTAs ("comment LLC / WORLD for the full video") boost algorithm engagement significantly.</div>
+        <div class="benchmark-example">cyfertp: 5,082 likes · frustration + brand tag<br>gcashofficial: 764 likes · payment flow reveal</div>
+      </div>
+      <div class="benchmark-card">
+        <div class="benchmark-platform">Instagram — #chinasourcing</div>
+        <div class="benchmark-finding">Active hashtag, predominantly Reels. Factory floor content, price reveal, and "come with me" sourcing vlogs lead engagement. Text-only captions underperform — visuals of the product/factory/dashboard are essential.</div>
+        <div class="benchmark-example">glovalere: 318K (cross-posted TT/IG) · "From LA to China"<br>felixwanggba: 253K · factory/supplier content<br>jackbloomfield: 121K · import how-to</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Hook formulas -->
+  <div class="benchmark-block" id="hooks">
+    <div class="section-label">Hook formulas — what's working right now</div>
+
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th style="width:25%">Formula</th>
+          <th style="width:35%">Example</th>
+          <th>Best for</th>
+          <th>Engagement driver</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ref-hook">Loss reveal hook</td>
+          <td class="ref-why">"Banks took $4,000 of my last payout. Here's what I use now."</td>
+          <td><span class="tag">Cassie · Rado</span></td>
+          <td>Save rate — people share "money they're losing"</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Objection kill hook</td>
+          <td class="ref-why">"Wait — is WorldFirst actually a bank?" → 30-second clear answer</td>
+          <td><span class="tag">Kat</span></td>
+          <td>Search traffic + comment engagement</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Price ladder reveal</td>
+          <td class="ref-why">"Same product: $40 on Amazon, $4 on 1688. Here's the gap."</td>
+          <td><span class="tag">Rado</span></td>
+          <td>Screenshot / save — people keep this for reference</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Insider nobody told you</td>
+          <td class="ref-why">"Sourcing in China? Here's what nobody told me…"</td>
+          <td><span class="tag">Rado · Kat</span></td>
+          <td>Watch-through rate — curiosity gap keeps them watching</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Platform comparison</td>
+          <td class="ref-why">"PayPal vs Stripe vs WorldFirst: $10,000 becomes ______"</td>
+          <td><span class="tag">Cassie</span></td>
+          <td>Comment debate + share to other sellers</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Comment CTA loop</td>
+          <td class="ref-why">"Comment WORLD for the full breakdown"</td>
+          <td><span class="tag">Kat · Cassie</span></td>
+          <td>Algorithm engagement signal — works best on educational content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size: 11px; color: #bbb; margin-top: 40px;">WorldFirst internal · July 2026 Freelancer Series · Research by Claude (Cathy's agent) · Reviewed by TikTok live search 2026-06-26</p>
+
+</main>
+</body>
+</html>
