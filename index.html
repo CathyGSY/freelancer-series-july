@@ -51,6 +51,19 @@
   .sidebar-section { margin-bottom: 20px; }
   .sidebar-label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 
+  /* Audit / done flags */
+  .done-flag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: #fff0f0; color: #900000; letter-spacing: 0.04em; white-space: nowrap; }
+  .gap-flag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: #eef6ee; color: #2d6a2d; letter-spacing: 0.04em; white-space: nowrap; }
+
+  /* Audit tables */
+  .audit-block { margin-bottom: 48px; scroll-margin-top: 32px; }
+  .audit-tier { display: flex; gap: 10px; align-items: baseline; margin-bottom: 10px; }
+  .tier-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); min-width: 56px; }
+  .tier-bar { height: 6px; border-radius: 3px; background: var(--border); }
+  .tier-bar.t1 { background: #111; }
+  .tier-bar.t2 { background: #999; }
+  .tier-bar.t3 { background: #ddd; }
+
   .sidebar nav a {
     display: flex; justify-content: space-between; align-items: center;
     padding: 5px 0; text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.15s;
@@ -151,6 +164,12 @@
   <div class="sidebar-brand">WorldFirst</div>
   <div class="sidebar-title">Freelancer Series<br>Research Note</div>
   <div class="sidebar-section">
+    <div class="sidebar-label">Audit</div>
+    <nav>
+      <a href="#content-audit">Channel audit</a>
+    </nav>
+  </div>
+  <div class="sidebar-section">
     <div class="sidebar-label">Creators</div>
     <nav>
       <a href="#kat">Kat <span class="count">5</span></a>
@@ -181,6 +200,153 @@
     <div class="stat"><span class="stat-value">4</span><span class="stat-label">competitors monitored</span></div>
     <div class="stat"><span class="stat-value">2026-06-26</span><span class="stat-label">researched</span></div>
   </div>
+
+  <!-- ───── CONTENT AUDIT ───── -->
+  <div class="audit-block" id="content-audit">
+    <div class="section-label">00 · Channel audit — @worldfirstglobal TikTok + Instagram</div>
+    <p style="font-size:13px;color:var(--muted);max-width:620px;margin-bottom:20px;line-height:1.6;">Live audit of all published content (popular sort, ~45 TikTok videos + Instagram grid). Use this to avoid duplicating what's already been done, and to find the real gaps. Audited 2026-06-26.</p>
+
+    <div class="insight">
+      <strong>The cliff is real and massive.</strong> Top 3 videos (all Canton Fair guides) get 10–60x more views than everything else. #1 "Fake Supplier" = 64.8K views, 3,214 saves, 5% save rate. #2 "First-Timer Tips" = 32.7K views, 1,869 saves. Everything below sits at 200–1,800. The gap is not random — it has a formula: financial stakes in the first 2 seconds + specific actionable steps + save-worthy structure. Brand/product content is consistently flat.
+    </div>
+
+    <div class="refs-label" style="margin-bottom:10px;">What the top 3 have in common</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px;">
+      <div style="border:1px solid var(--border);border-radius:8px;padding:14px;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:6px;">1. Dollar stakes in the hook</div>
+        "I watched a guy lose $50,000 to a fake supplier." Not "how to spot fake suppliers." The number is in the first 2 seconds. Generic hooks get skipped.
+      </div>
+      <div style="border:1px solid var(--border);border-radius:8px;padding:14px;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:6px;">2. Save-worthy, not share-worthy</div>
+        5–6% save rate on both top videos. Comments are low. People bookmark these as reference guides. Comments like "Just saved to come back to it" and "Best insight ever." Format = practical guide, not entertainment.
+      </div>
+      <div style="border:1px solid var(--border);border-radius:8px;padding:14px;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:6px;">3. Specific actionable steps</div>
+        Not awareness — "here are the 6 apps that will save your China trip." Numbered, concrete, executable. Audiences save content they plan to use again.
+      </div>
+    </div>
+
+    <div class="refs-label" style="margin-bottom:10px;">Product / FX content already published — and how it performed</div>
+    <table class="ref-table" style="margin-bottom:24px;">
+      <thead>
+        <tr>
+          <th style="width:34%">Video</th>
+          <th>Views</th>
+          <th>Likes</th>
+          <th>Saves</th>
+          <th style="width:28%">Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ref-hook"><a href="https://www.tiktok.com/@worldfirstglobal/video/7592909026145488150" target="_blank">"Is WorldFirst a Bank?"</a></td>
+          <td class="ref-likes">2,273</td>
+          <td>59</td>
+          <td>18</td>
+          <td class="ref-why"><span class="done-flag">DONE · FLOPPED</span> Got distributed, nobody engaged. 59 likes on 2,273 views = 2.6% like rate, 18 saves. The concept has no stakes hook — pure brand explainer. Do NOT repeat. If reframing, make the cost visible first.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook"><a href="https://www.tiktok.com/@worldfirstglobal" target="_blank">"Send Money Abroad in Minutes — Using WorldFirst"</a></td>
+          <td class="ref-likes">1,664</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="ref-why"><span class="done-flag">DONE</span> Feature demo format. Moderate reach. Works as awareness but no problem-solution stakes, so no save impulse. Kat/Cassie should go deeper with a comparison or hypothetical loss framing.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook"><a href="https://www.tiktok.com/@worldfirstglobal" target="_blank">"CNH CNY" (currency explainer)</a></td>
+          <td class="ref-likes">1,626</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="ref-why"><span class="done-flag">DONE</span> FX concept explained. Moderate. No stakes hook — concept-only. Cassie can build on this with the accounting/P&L framing which does not exist yet.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook"><a href="https://www.tiktok.com/@worldfirstglobal" target="_blank">"Supplier Copying Your Product?"</a></td>
+          <td class="ref-likes">492</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="ref-why"><span class="done-flag">DONE · WEAK</span> Right topic, wrong execution. No financial stakes in hook. Compare to #1 (64.8K) — same category, 130x fewer views. Stakes framing is everything.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook"><a href="https://www.tiktok.com/@worldfirstglobal" target="_blank">"NOT RECEIVED" (payment dispute / missing payment)</a></td>
+          <td class="ref-likes">618</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="ref-why"><span class="done-flag">DONE · WEAK</span> Pain point identified but never converted into a stakes hook or actionable guide. The setup is there — execution is missing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="refs-label" style="margin-bottom:10px;">1688 / sourcing content already published</div>
+    <table class="ref-table" style="margin-bottom:24px;">
+      <thead>
+        <tr>
+          <th style="width:34%">Video</th>
+          <th>Views</th>
+          <th style="width:34%">Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ref-hook">"Here's my secret weapon that turns 1688 into perfect English"</td>
+          <td class="ref-likes">1,774</td>
+          <td class="ref-why"><span class="done-flag">DONE</span> Best non-Canton-Fair 1688 video. Works because it solves a specific pain (language barrier) with a tool. Rado should follow the same structure — solve one specific 1688 pain with a concrete unlock.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">"Go Directly to 1688" (basic how-to)</td>
+          <td class="ref-likes">675</td>
+          <td class="ref-why"><span class="done-flag">DONE · THIN</span> No comparison, no stakes. Too surface-level.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Canton Fair: fake supplier guide</td>
+          <td class="ref-likes">64.8K</td>
+          <td class="ref-why"><span class="done-flag">DONE · BEST PERFORMER</span> Do not duplicate. But study the formula: dollar stakes + specific steps + split-screen.</td>
+        </tr>
+        <tr>
+          <td class="ref-hook">Canton Fair: first-timer tips, must-use apps, speed run, post-fair strategy, robot dogs, trends</td>
+          <td class="ref-likes">420–32.7K</td>
+          <td class="ref-why"><span class="done-flag">DONE (8+ videos)</span> Canton Fair is saturated on this channel. Rado should not touch it. The angle is owned.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="refs-label" style="margin-bottom:10px;">Gaps — angles that do not exist yet on any WorldFirst channel</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;">
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;AliExpress vs Alibaba vs 1688 price comparison — as a video</div>
+        Exists as an Instagram graphic ($18/$10/$4/$0.50) but has never been done as a proper talking-head explanation with the price ladder. This is Rado's #1 opportunity — the phone case series proves the price gap format works.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;WorldFirst vs PayPal direct comparison with a consistent dollar amount</div>
+        "Send Money Abroad in Minutes" exists but only shows WorldFirst — no comparison. A side-by-side with a consistent $10K hypothetical has never been done. Works for Kat and Cassie.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;Accounting / P&L framing of FX losses — zero coverage</div>
+        "Here's the line on your P&L where your bank fee hides" — completely untouched. Nobody on the channel has done accounting-voice FX content. Cassie owns this lane entirely.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;"3/5 accounts every cross-border ecom business needs" format</div>
+        No list-format accounts education video exists. Josh.thomas style. High save potential. Cassie's primary angle.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;World Card cashback explained as a video with maths</div>
+        World Card exists as an Instagram graphic ("Save on Every Spend, Everywhere") but no video has walked through the cashback maths with a concrete spend scenario. Kat's #1 idea.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;Ecom platform payout collection (Amazon + Shopify + TikTok Shop) in one account</div>
+        Multi-currency collection from multiple platforms — the "here's the setup" video — has never been done. Kat idea #3.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;FX as a tax / bookkeeping problem</div>
+        World Card / FX losses as a year-end accounting headache — the "mixing personal and business international spend is a mess" angle. Cassie idea #4. Never done.
+      </div>
+      <div style="border:1px solid #b8ddb8;border-radius:8px;padding:14px;background:#f5fbf5;font-size:12.5px;line-height:1.55;">
+        <div style="font-weight:700;margin-bottom:4px;color:#2d6a2d;"><span class="gap-flag">GAP</span> &nbsp;1688 payment wall as the pivot — the "you found the product, now here's the problem" hook</div>
+        "You sourced the product on 1688. Now try to pay for it." The payment barrier framing — not how to use 1688, but specifically: you can't pay without yuan, here's the unlock. Never done as its own video. Rado S1.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
 
   <!-- ───── KAT ───── -->
   <div class="creator-block" id="kat">
@@ -281,10 +447,10 @@
       <div class="idea-tags"><span class="tag product">PRODUCT</span><span class="tag">World Card</span><span class="tag">cashback</span></div>
     </div>
 
-    <div class="idea-card">
-      <div class="idea-top"><span class="idea-num">02 ★</span><span class="idea-title">"Wait — is WorldFirst actually a bank?" (objection kill)</span><span class="idea-format">Short · 30s</span></div>
-      <div class="idea-body">The single most common new-user question. Pure speaking head — Kat answers directly: no, it's a regulated payment platform, funds held at licensed institutions. Fast, clean, trust-building. Strong search traffic. No personal proof required — this is pure knowledge, and Kat owns it with confidence.</div>
-      <div class="idea-tags"><span class="tag product">PRODUCT</span><span class="tag">World Account</span><span class="tag">trust / objection</span></div>
+    <div class="idea-card" style="border-color:#f0c0c0;background:#fffafa;">
+      <div class="idea-top"><span class="idea-num">02</span><span class="idea-title">"Wait — is WorldFirst actually a bank?" (objection kill) &nbsp;<span class="done-flag">ALREADY DONE — REFRAME</span></span><span class="idea-format">Short · 30s</span></div>
+      <div class="idea-body" style="color:#900000;"><strong>Brand channel already posted this:</strong> 2,273 views, 59 likes, 18 saves. Flopped — no stakes, pure brand explainer. Do NOT duplicate.<br><br><strong>If Kat does this angle, reframe it around cost:</strong> "Your bank charges a 3% FX markup every time you collect from Amazon. WorldFirst doesn't. Here's the difference on a $10K payout." Lead with the money lost, not the brand question. That version has never been done and is a genuine gap.</div>
+      <div class="idea-tags"><span class="tag competitor">SKIP AS-IS</span><span class="tag product">Reframe → cost-first hook</span></div>
     </div>
 
     <div class="idea-card">
